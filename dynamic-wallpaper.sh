@@ -2,9 +2,8 @@
 
 #Set location.
 #location="CHXX0008" #Beijing, China
-#location="UKXX1428" #Greenwich, England
-location="CAXX0301" #Montreal, Canada
-#location="CAXX1026" #Almonte, Canada
+location="UKXX1428" #Greenwich, England
+#location="CAXX0301" #Montreal, Canada
 
 #Path to storage file.
 storefile="/tmp/sunrise-sunset.txt"

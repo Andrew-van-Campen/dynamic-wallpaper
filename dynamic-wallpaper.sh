@@ -2,11 +2,12 @@
 
 #Set location.
 #location="CHXX0008" #Beijing, China
-location="UKXX1428" #Greenwich, England
-#location="CAXX0301" #Montreal, Canada
+#location="UKXX1428" #Greenwich, England
+location="CAXX0301" #Montreal, Canada
+#location="CAXX1026" #Almonte, Canada
 
 #Path to storage file.
-storefile="/tmp/sunrise-sunset.txt"
+storefile="/tmp/sunrise-sunset"
 
 #Function to retrieve sunrise and sunset times from weather.com, and store them in a file.
 retrieveTimes()

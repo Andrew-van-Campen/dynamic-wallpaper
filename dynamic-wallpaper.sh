@@ -26,7 +26,7 @@ retrieveTimes()
         #Find the sunrise and sunset times in the website data.
         sunrise_UTC=$(grep -o 'sunriseTimeUtc\\\":[0-9]*,' $tmpfile | cut -d : -f 2 | cut -d , -f 1)
         sunset_UTC=$(grep -o 'sunsetTimeUtc\\\":[0-9]*,' $tmpfile | cut -d : -f 2 | cut -d , -f 1)
-        #Store the location, date, and sunrise and sunset times.
+        #Store the location and sunrise and sunset times.
         echo $location > $storefile
         echo $sunrise_UTC >> $storefile
         echo $sunset_UTC >> $storefile
@@ -53,7 +53,7 @@ else
     retrieveTimes
 fi
 
-#Read sunrise and sunset times from file (as well as location).
+#Read sunrise and sunset times from file.
 location=$(cat $storefile | cut -d $'\n' -f 1)
 sunrise_UTC=$(cat $storefile | cut -d $'\n' -f 2)
 sunset_UTC=$(cat $storefile | cut -d $'\n' -f 3)

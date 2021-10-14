@@ -2,7 +2,9 @@
 A Bash script that switches wallpaper in sync with sunrise and sunset times.
 
 ### Installation Instructions
-1. Download the shell script file <a href="https://raw.githubusercontent.com/Andrew-van-Campen/dynamic-wallpaper/main/dynamic-wallpaper.sh" download target="_blank">dynamic-wallpaper.sh</a> and save it to the location of your choice (right-click on "Raw" and click "Save Link As...").
+1. Download the shell script file
+<a href="https://raw.githubusercontent.com/Andrew-van-Campen/dynamic-wallpaper/main/dynamic-wallpaper.sh" download>dynamic-wallpaper.sh</a>
+and save it to the location of your choice (right-click on "Raw" and click "Save Link As...").
 
 2. Make the script file executable using the command:
 > `chmod +x [some/path/]dynamic-wallpaper.sh`

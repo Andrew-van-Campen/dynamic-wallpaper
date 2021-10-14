@@ -7,7 +7,7 @@ A Bash script that switches wallpaper in sync with sunrise and sunset times.
 2. Make the script file executable using the command:
 > `chmod +x [some/path/]dynamic-wallpaper.sh`
 
-3. Open the script file with a text editor. You'll see a section of code labelled "`THIS SECTION OF CODE CAN BE EDITED BY THE USER`". Edit this section of code to set your location and your daytime and nighttime wallpapers, then save the file.
+3. Open the script file with a text editor. You'll see a section of code labelled `THIS SECTION OF CODE CAN BE EDITED BY THE USER`. Edit this section of code to set your location and your daytime and nighttime wallpapers, then save the file.
 
 4. Set the script to run every minute using cron.
     1. First, ensure that cron is running using the command:

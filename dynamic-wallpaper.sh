@@ -4,12 +4,12 @@
 # THIS SECTION OF CODE CAN BE EDITED BY THE USER.
 
 # Set location. Location codes can be found at: https://weather.codes
-#location="CHXX0008"  # Beijing, China
+location="CAXX0301"  # Montreal, Canada
 #location="UKXX1428"  # Greenwich, England
- location="CAXX0301"  # Montreal, Canada
+#location="CHXX0008"  # Beijing, China
 
 # Set daytime and nighttime wallpapers.
-  daytime="/usr/share/backgrounds/odin.jpg"
+daytime="/usr/share/backgrounds/odin.jpg"
 nighttime="/usr/share/backgrounds/odin-dark.jpg"
 
 #----------------------------------------------------------------------------------------------------
@@ -66,25 +66,31 @@ location=$(cat $storefile | cut -d $'\n' -f 1)
 sunrise_UTC=$(cat $storefile | cut -d $'\n' -f 2)
 sunset_UTC=$(cat $storefile | cut -d $'\n' -f 3)
 
-# Convert times to minutes so that date is not taken into account when comparing times.
+# Convert times to minutes so that date is not taken into account when comparing times, and get current time.
 sunrise=$((60 * 10#$(date -d @$sunrise_UTC +%H) + 10#$(date -d @$sunrise_UTC +%M)))
 sunset=$((60 * 10#$(date -d @$sunset_UTC +%H) + 10#$(date -d @$sunset_UTC +%M)))
-if [ $sunrise -gt $sunset ]
-then
-    sunrise=$(($sunrise - 1440))
-fi
 
 # Set environment for cron.
 PID=$(pgrep gnome-session)
 export DBUS_SESSION_BUS_ADDRESS=$(grep -z 'DBUS_SESSION_BUS_ADDRESS' /proc/$PID/environ | cut -d = -f 2-999 | cut -d $'\0' -f 1)
 
-# Check the current time, and change the wallpaper accordingly.
+# Compare the current time to sunrise and sunset times, and change the wallpaper accordingly.
 current_time=$((60 * 10#$(date +%H) + 10#$(date +%M)))
-if [ $current_time -gt $sunrise -a $current_time -lt $sunset ]
+if [ $sunrise -lt $sunset ]
 then
-    gsettings set org.gnome.desktop.background picture-uri $daytime
+    if [ $sunrise -lt $current_time -a $current_time -lt $sunset ]
+    then
+        gsettings set org.gnome.desktop.background picture-uri $daytime
+    else
+        gsettings set org.gnome.desktop.background picture-uri $nighttime
+    fi
 else
-    gsettings set org.gnome.desktop.background picture-uri $nighttime
+    if [ $sunset -lt $current_time -a $current_time -lt $sunrise ]
+    then
+        gsettings set org.gnome.desktop.background picture-uri $nighttime
+    else
+        gsettings set org.gnome.desktop.background picture-uri $daytime
+    fi
 fi
 
 # Function to print times.

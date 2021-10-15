@@ -4,7 +4,9 @@
 # THIS SECTION OF CODE CAN BE EDITED BY THE USER.
 
 # Set location. Location codes can be found at: https://weather.codes
-location="CAXX0301"  # Montreal, Canada
+ location="CHXX0008"  # Beijing, China
+#location="UKXX1428"  # Greenwich, England
+#location="CAXX0301"  # Montreal, Canada
 
 # Set daytime and nighttime wallpapers.
   daytime="/usr/share/backgrounds/odin.jpg"

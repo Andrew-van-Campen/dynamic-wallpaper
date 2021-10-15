@@ -66,7 +66,7 @@ location=$(cat $storefile | cut -d $'\n' -f 1)
 sunrise_UTC=$(cat $storefile | cut -d $'\n' -f 2)
 sunset_UTC=$(cat $storefile | cut -d $'\n' -f 3)
 
-# Convert times to minutes so that date is not taken into account when comparing times, and get current time.
+# Convert times to minutes so that date is not taken into account when comparing times.
 sunrise=$((60 * 10#$(date -d @$sunrise_UTC +%H) + 10#$(date -d @$sunrise_UTC +%M)))
 sunset=$((60 * 10#$(date -d @$sunset_UTC +%H) + 10#$(date -d @$sunset_UTC +%M)))
 
